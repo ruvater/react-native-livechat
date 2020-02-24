@@ -3,7 +3,6 @@ import { StyleSheet, Text, Dimensions, Platform } from 'react-native';
 import { View } from 'react-native-animatable';
 import PropTypes from 'prop-types';
 import { GiftedChat } from 'react-native-gifted-chat';
-import NavigationBar from './NavigationBar';
 
 const { height, width } = Dimensions.get('window');
 const totalSize = num => (Math.sqrt((height * height) + (width * width)) * num) / 100;
@@ -54,7 +53,6 @@ export default class Chat extends React.Component {
           style={styles.container}
           ref={(ref) => { this.chat = ref; }}
         >
-          <NavigationBar chatTitle={chatTitle} closeChat={closeChat} />
           { isReconnecting && <Text style={styles.connectionStatus}>Reconnecting...</Text> }
           {headerText && <Text style={styles.status}>{ headerText }</Text> }
           <GiftedChat
